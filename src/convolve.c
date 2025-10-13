@@ -84,10 +84,10 @@ int main(){
 
     int M,N;
 
-    printf("ENTER INPUT SIZE: ");
+    printf("ENTER INPUT SIZE-> ");
     scanf("%d", &N);
 
-    printf("ENTER FILTER SIZE: ");
+    printf("ENTER FILTER SIZE-> ");
     scanf("%d", &M);
     
     draw_line();
@@ -103,22 +103,22 @@ int main(){
         return 1;
     }
 
-    printf("ENTER INPUT: ");
+    printf("ENTER INPUT-> ");
     input_array(input, N);
     
-    printf("ENTER FILTER: ");
+    printf("ENTER FILTER-> ");
     input_array(filter,M);
    
     convolve(filter,input,output,M,N);
 
     draw_line();
 
-    print_array(input,N, "INPUT ARRAY");
-    print_array(filter,M, "FILTER ARRAY");
+    print_array(input,N, "INPUT ARRAY->");
+    print_array(filter,M, "FILTER ARRAY->");
 
     draw_line();
 
-    print_array(output,M+N-1, "CONVOLVED ARRAY");
+    print_array(output,M+N-1, "CONVOLVED ARRAY->");
 
     draw_line();
 
@@ -130,7 +130,10 @@ int main(){
     if(decision == 'y' || decision == 'Y'){
 
         write_to_file("data.txt",filter,input,output,M,N,Y);
-        system("python3 plot.py");
+        free(filter);
+        free(input);
+        free(output);
+        system("python3 ./src/plotter.py");
         return 0;
 
     }

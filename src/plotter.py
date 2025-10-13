@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+import os
 from matplotlib.ticker import MaxNLocator
 
 FILENAME = "data.txt"
@@ -45,6 +46,7 @@ def plot_convolution_data():
     axs[2].stem(output_signal)
     axs[2].set_title(f'Output Signal (Size: {len(output_signal)})')
     axs[2].xaxis.set_major_locator(MaxNLocator(integer=True)) 
+    os.remove('data.txt')
     plt.show()
 
 if __name__ == "__main__":
